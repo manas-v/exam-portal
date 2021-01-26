@@ -1,0 +1,35 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="assets" />
+            <item index="1" class="java.lang.String" itemvalue="assets\css" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="dict.*" />
+          <option value="OnlineTest.models.TeacherLoginDetails.objects" />
+          <option value="OnlineTest.models.TeacherSubjects.*" />
+          <option value="OnlineTest.models.MathTest.*" />
+          <option value="OnlineTest.models.ChemTest.objects" />
+          <option value="OnlineTest.models.BioTest.objects" />
+          <option value="OnlineTest.models.CseTest.objects" />
+          <option value="OnlineTest.models.TeacherDetails.objects" />
+          <option value="OnlineTest.models.PhyTest.objects" />
+          <option value="OnlineTest.models.StudentDetails.objects" />
+          <option value="OnlineTest.models.StudentSubjects.objects" />
+          <option value="OnlineTest.models.StudentLoginDetails.objects" />
+          <option value="OnlineTest.models.Test.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

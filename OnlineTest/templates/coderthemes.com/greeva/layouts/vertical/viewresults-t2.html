@@ -1,0 +1,262 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from coderthemes.com/greeva/layouts/vertical/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2019 05:24:01 GMT -->
+<head>
+        <meta charset="utf-8" />
+        <title>Greeva - Responsive Bootstrap 4 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{%static 'assets/images/favicon.ico' %}">
+
+        <!-- third party css -->
+        <link href="{%static 'assets/libs/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/libs/datatables/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/libs/datatables/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/libs/datatables/select.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="{%static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <div class="navbar-custom">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <span class="pro-user-name ml-1">
+                                {% for log in logs %}
+                                {{log.user_id}} <i class="mdi mdi-chevron-down"></i>
+                                {% endfor %}
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h6 class="m-0">
+                                    Welcome !
+                                </h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="dripicons-user"></i>
+                                <span>My Account</span>
+                            </a>
+
+                            <!-- item-->
+                            <a class="dropdown-item notify-item" href="../../login">
+                                <i class="dripicons-power"></i>
+                                <span>Logout</span>
+                            </a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+                <ul class="list-unstyled menu-left mb-0">
+                    <li class="float-left">
+                        <a href="../../teacher_dashboard" class="logo">
+                            <span class="logo-lg">
+                                <img src="{%static 'assets/images/logo-dark.png' %}" alt="" height="50">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="{%static 'assets/images/logo-sm.png' %}" alt="" height="24">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- end Topbar -->
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu">
+
+                <div class="slimscroll-menu">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <ul class="metismenu" id="side-menu">
+
+                            <li class="menu-title">Navigation</li>
+
+                            <li>
+                                <a href="../../teacher_dashboard">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Dashboard </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../../create_test">
+                                            <i class="dripicons-pencil"></i> <span> Add Tests </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../../view_test1">
+                                    <i class="dripicons-document"></i> <span> View Tests </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../../view_results_t1">
+                                    <i class="dripicons-checkmark"></i> <span> View results </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="teacher_dashboard">Dashboard</a></li>
+                                            <li class="breadcrumb-item active">View Test</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Dashboard</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="header-title">Test Results</h4>
+                                    <p class="sub-header">
+                                        View student results here
+                                    </p>
+        
+                                    <table id="datatable" class="table table-bordered dt-responsive nowrap">
+                                        <thead>
+                                        <tr>
+                                            <th style="background-color: #98e6e6;">Sl.no</th>
+                                            <th style="background-color: #98e6e6;">Test Name</th>
+                                            <th style="background-color: #98e6e6;">Student Name</th>
+                                            <th style="background-color: #98e6e6;">Marks</th>
+                                            <th style="background-color: #98e6e6;">Percentage</th>
+                                            <th style="background-color: #98e6e6;">Remark</th>
+                                        </tr>
+                                        </thead>
+        
+                                        <tbody>
+                                        {% for test in tests %}
+                                        <tr>
+                                            <td style="background-color: #f1f5f7;">{{forloop.counter}}</td>
+                                            <td style="background-color: #f1f5f7;">{{test.test_id }}</td>
+                                            <td style="background-color: #f1f5f7;">{% if forloop.counter == 1 %}{{stu.0}}{% endif %}
+                                                {% if forloop.counter == 2 %}{{stu.1}}{% endif %}
+                                                {% if forloop.counter == 3 %}{{stu.2}}{% endif %}
+                                                {% if forloop.counter == 4 %}{{stu.3}}{% endif %}
+                                                {% if forloop.counter == 5 %}{{stu.4}}{% endif %}
+                                                {% if forloop.counter == 6 %}{{stu.5}}{% endif %}
+                                                {% if forloop.counter == 7 %}{{stu.6}}{% endif %}
+                                                {% if forloop.counter == 8 %}{{stu.7}}{% endif %}
+                                                {% if forloop.counter == 9 %}{{stu.8}}{% endif %}
+                                                {% if forloop.counter == 10 %}{{stu.9}}{% endif %}
+                                                {% if forloop.counter == 11 %}{{stu.10}}{% endif %}
+                                                {% if forloop.counter == 12 %}{{stu.11}}{% endif %}
+                                                {% if forloop.counter == 13 %}{{stu.12}}{% endif %}
+                                                {% if forloop.counter == 14 %}{{stu.13}}{% endif %}
+                                                </td>
+
+                                            <td style="background-color: #f1f5f7;">{{test.marks}}</td>
+                                            <td style="background-color: #f1f5f7;">
+                                                {% if test.marks == 0 %}0%{% endif %}
+                                                {% if test.marks == 1 %}20%{% endif %}
+                                                {% if test.marks == 2 %}40%{% endif %}
+                                                {% if test.marks == 3 %}60%{% endif %}
+                                                {% if test.marks == 4 %}80%{% endif %}
+                                                {% if test.marks == 5 %}100%{% endif %}
+                                            </td>
+                                            <td style="background-color: #f1f5f7;">{% if test.marks > 2 %}Pass{% else %}Fail {% endif %}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div> <!-- end card-box -->
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- Vendor js -->
+        <script src="{%static 'assets/js/vendor.min.js' %}"></script>
+
+        <!-- datatable js -->
+        <script src="{%static 'assets/libs/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/dataTables.bootstrap4.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/dataTables.responsive.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/responsive.bootstrap4.min.js' %}"></script>
+        
+        <script src="{%static 'assets/libs/datatables/dataTables.buttons.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.html5.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.flash.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.print.min.js' %}"></script>
+
+        <script src="{%static 'assets/libs/datatables/dataTables.keyTable.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/dataTables.select.min.js' %}"></script>
+
+        <!-- Datatables init -->
+        <script src="{%static 'assets/js/pages/datatables.init.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{%static 'assets/js/app.min.js' %}"></script>
+        
+    </body>
+
+<!-- Mirrored from coderthemes.com/greeva/layouts/vertical/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2019 05:24:04 GMT -->
+</html>

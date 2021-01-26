@@ -1,0 +1,267 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from coderthemes.com/greeva/layouts/vertical/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2019 05:24:01 GMT -->
+<head>
+        <meta charset="utf-8" />
+        <title>Greeva - Responsive Bootstrap 4 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{%static 'assets/images/favicon.ico' %}">
+
+        <!-- third party css -->
+        <link href="{%static 'assets/libs/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/libs/datatables/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/libs/datatables/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/libs/datatables/select.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="{%static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{%static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <div class="navbar-custom">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <span class="pro-user-name ml-1">
+                                {% for log in logs %}
+                                {{log.user_id}} <i class="mdi mdi-chevron-down"></i>
+                                {% endfor %}
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h6 class="m-0">
+                                    Welcome !
+                                </h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="dripicons-user"></i>
+                                <span>My Account</span>
+                            </a>
+
+                            <!-- item-->
+                            <a class="dropdown-item notify-item" href="../../login">
+                                <i class="dripicons-power"></i>
+                                <span>Logout</span>
+                            </a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+                <ul class="list-unstyled menu-left mb-0">
+                    <li class="float-left">
+                        <a href="../../student_dashboard" class="logo">
+                            <span class="logo-lg">
+                                <img src="{%static 'assets/images/logo-dark.png' %}" alt="" height="50">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="{%static 'assets/images/logo-sm.png' %}" alt="" height="24">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- end Topbar -->
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu">
+
+                <div class="slimscroll-menu">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <ul class="metismenu" id="side-menu">
+
+                            <li class="menu-title">Navigation</li>
+
+                            <li>
+                                <a href="../../student_dashboard">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Dashboard </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../../give_test">
+                                            <i class="dripicons-pencil"></i> <span> Give Tests </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../../view_test2">
+                                    <i class="dripicons-document"></i> <span> View Tests </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../../view_results_s1">
+                                    <i class="dripicons-checkmark"></i> <span> View results </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="student_dashboard">Dashboard</a></li>
+                                            <li class="breadcrumb-item active">View Test</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Dashboard</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="header-title">Test Results</h4>
+                                    <br>
+                                    <table>
+                                        <tr style="font-size:15px">
+                                            <td class="p-1">Student Name </td><td class="p-1"> - </td><td class="p-1">{{users.first_name}} {{users.last_name}}</td></tr>
+                                        <tr style="font-size:15px">
+                                            <td class="p-1">Test Name </td><td class="p-1"> - </td><td class="p-1">{{test.test_id}}</td></tr>
+                                        <tr style="font-size:15px">
+                                            <td class="p-1">Subject </td><td class="p-1"> - </td><td class="p-1">
+                                                    {% if test.subject == "phy" %}Physics {% endif %}
+                                                    {% if test.subject == "chem" %}Chemistry {% endif %}
+                                                    {% if test.subject == "math" %}Mathematics {% endif %}
+                                                    {% if test.subject == "bio" %}Biology {% endif %}
+                                                    {% if test.subject == "cse" %}Computers {% endif %}</td></tr>
+                                        <tr style="font-size:15px">
+                                            <td class="p-1">Marks </td><td class="p-1"> - </td><td class="p-1">{{test.marks}}</td></tr>
+                                        <tr style="font-size:15px">
+                                            <td class="p-1">Remark </td><td class="p-1"> - </td><td class="p-1">
+                                                    {% if test.marks > 2 %}Pass{% else %}Fail {% endif %}</td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <h5 class="ml-1">Marked Answers</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover m">
+                                            <thead>
+                                        <tr>
+                                            <th style="background-color: #98e6e6;" class="p-2">Question Number</th>
+                                            <th style="background-color: #98e6e6;" class="p-2">Correct Answer</th>
+                                            <th style="background-color: #98e6e6;" class="p-2">Marked Answer</th>
+                                            <th style="background-color: #98e6e6;" class="p-2">Remark</th>
+                                        </tr>
+                                        </thead>
+        
+                                        <tbody>
+                                        {% for qn in qns%}
+                                        <tr>
+                                            <td style="background-color: #f1f5f7;">{{ forloop.counter }}</td>
+                                            <td style="background-color: #f1f5f7;">{{qn.ans}}</td>
+                                            <td style="background-color: #f1f5f7;">{% if qn.index == 1 %}{{ test.a1 }}{% endif %}
+                                                {% if qn.index == 2 %}{{ test.a2 }}{% endif %}
+                                                {% if qn.index == 3 %}{{ test.a3 }}{% endif %}
+                                                {% if qn.index == 4 %}{{ test.a4 }}{% endif %}
+                                                {% if qn.index == 5 %}{{ test.a5 }}{% endif %}
+                                            </td>
+                                            <td style="background-color: #f1f5f7;">{% if qn.index == 1 %}{% if qn.ans == test.a1  %}Correct{% else %}Wrong{% endif %}{% endif %}
+                                                {% if qn.index == 2 %}{% if qn.ans == test.a2  %}Correct{% else %}Wrong{% endif %}{% endif %}
+                                                {% if qn.index == 3 %}{% if qn.ans == test.a3  %}Correct{% else %}Wrong{% endif %}{% endif %}
+                                                {% if qn.index == 4 %}{% if qn.ans == test.a4  %}Correct{% else %}Wrong{% endif %}{% endif %}
+                                                {% if qn.index == 5 %}{% if qn.ans == test.a5  %}Correct{% else %}Wrong{% endif %}{% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                        <br>
+                                        <br>
+                                </div> <!-- end card-box -->
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- Vendor js -->
+        <script src="{%static 'assets/js/vendor.min.js' %}"></script>
+
+        <!-- datatable js -->
+        <script src="{%static 'assets/libs/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/dataTables.bootstrap4.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/dataTables.responsive.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/responsive.bootstrap4.min.js' %}"></script>
+        
+        <script src="{%static 'assets/libs/datatables/dataTables.buttons.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.html5.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.flash.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/buttons.print.min.js' %}"></script>
+
+        <script src="{%static 'assets/libs/datatables/dataTables.keyTable.min.js' %}"></script>
+        <script src="{%static 'assets/libs/datatables/dataTables.select.min.js' %}"></script>
+
+        <!-- Datatables init -->
+        <script src="{%static 'assets/js/pages/datatables.init.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{%static 'assets/js/app.min.js' %}"></script>
+        
+    </body>
+
+<!-- Mirrored from coderthemes.com/greeva/layouts/vertical/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2019 05:24:04 GMT -->
+</html>
